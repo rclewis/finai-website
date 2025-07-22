@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FinanceAI is an AI-powered financial analysis platform for institutions, analysts, and finance teams." />
+    <title>FinanceAI</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="icon" href="favicon.ico" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImage = lightbox.querySelector("img");
+
+            document.querySelectorAll('.screenshot-gallery-grid img').forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImage.src = img.src;
+                    lightboxImage.alt = img.alt;
+                    lightbox.style.display = 'flex';
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+                lightboxImage.src = '';
+                lightboxImage.alt = '';
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    lightbox.style.display = 'none';
+                    lightboxImage.src = '';
+                    lightboxImage.alt = '';
+                }
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="branding">
+          <a href="index.html">
+            <img src="assets/images/finai_logo.png" alt="FinanceAI logo" width="40" height="40" />
+            <h1>FinanceAI</h1>
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h2>AI-Powered Financial Analysis</h2>
+        <p>Automate your financial statement review, gain deep insights, and monitor business health effortlessly.</p>
+        <div class="cta-container">
+          <a class="cta secondary" href="#contact">Request a Demo</a>
+          &nbsp;&nbsp;or&nbsp;&nbsp;
+          <a class="cta" href="https://app.financeai.cloud" target="_blank" rel="noopener">Get Started</a>
+        </div>
+        <div class="login-screenshot" style="margin-top: 2rem; text-align: center;">
+        <img
+            src="assets/images/screenshot7.png"
+            alt="Login Screen"
+            style="max-height: 300px; width: auto; max-width: 100%; border-radius: 8px; border: 1px solid #ccc; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); cursor: pointer; transition: transform 0.2s ease-in-out;"
+            onclick="document.querySelector('.lightbox img').src = this.src; document.querySelector('.lightbox').style.display = 'flex';"
+        />
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h3>Platform Highlights</h3>
+        <div class="grid">
+          <div class="feature">
+            <h4>Automated Analysis</h4>
+            <p>AI-driven tools instantly interpret balance sheets, income statements, and cash flow data.</p>
+          </div>
+          <div class="feature">
+            <h4>Business Health Monitoring</h4>
+            <p>Track key metrics and performance ratios over time to spot risks and opportunities.</p>
+          </div>
+          <div class="feature">
+            <h4>Portfolio Insights</h4>
+            <p>Equip investment teams with smart summaries across multiple entities or portfolios.</p>
+          </div>
+        </div>
+        <div class="screenshot-gallery" style="margin-top: 2rem;">
+            <div class="screenshot-gallery-group">
+                <div class="screenshot-gallery-grid full">
+                    <img src="assets/images/screenshot1.png" alt="Screenshot 1" />
+                    <img src="assets/images/screenshot2.png" alt="Screenshot 2" />
+                    <img src="assets/images/screenshot6.png" alt="Screenshot 6" />
+                </div>
+            </div>
+            <div class="screenshot-gallery-group">
+                <div class="screenshot-gallery-grid narrow">
+                    <img src="assets/images/screenshot4.png" alt="Screenshot 4" />
+                    <img src="assets/images/screenshot5.png" alt="Screenshot 5" />
+                    <img src="assets/images/screenshot3.png" alt="Screenshot 3" />
+                </div>
+            </div>
+            
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h3>How It Works</h3>
+            <div class="grid">
+                <div class="feature-hiw">
+                    <h4>Import Financial Statements</h4>
+                    <p>Bring your financial statements in any spreadsheet layout.</p>
+                </div>
+                <div class="feature-hiw">
+                    <h4>AI-Powered Parsing</h4>
+                    <p>Our engine intelligently extracts and maps your data based on the statement type.</p>
+                </div>
+                <div class="feature-hiw">
+                    <h4>Insight Generation</h4>
+                    <p>Get executive-level summaries, ratio analysis, and risk insights right at your fingertips.</p>
+                </div>
+                <div class="feature-hiw">
+                    <h4>Track Over Time</h4>
+                    <p>View trends, compare periods, and monitor business health across clients or portfolios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h3>About FinanceAI</h3>
+        <p>
+          FinanceAI is built for decision-makers who need clarity and speed. Whether you're a lender, analyst,
+          or CFO, we streamline your workflow with intelligent automation and financial insight generation.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h3>Get in Touch</h3>
+        <p>Email us at <a href="mailto:support@financeai.cloud">support@financeai.cloud</a></p>
+        <p style="margin-top: 1rem;">
+          <a href="https://www.linkedin.com/company/financeai-llc" target="_blank" rel="noopener">
+            <img src="assets/images/linkedin_logo.png" alt="LinkedIn" height="32" style="margin-right: 20px;" />
+          </a>
+          <a href="https://www.x.com/FinanceAI_LLC" target="_blank" rel="noopener">
+            <img src="assets/images/x_logo.jpg" alt="X (Twitter)" height="32" style="border-radius: 2px;" />
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 FinanceAI. All rights reserved.</p>
+      </div>
+    </footer>
+    <div id="lightbox" class="lightbox">
+      <img src="" alt="Expanded screenshot" />
+    </div>
+  </body>
+</html>
