@@ -192,10 +192,36 @@ nav a:hover {
   transform: scale(1.02);
 }
 
+/* ==== 14‑day Trial Callout (no button) ==== */
+.accent-bar {
+  width: 120px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+  margin: 2rem auto 1.25rem;   /* top space from screenshot, bottom space before box */
+}
+
+.trial-callout {
+  margin: 0 auto;
+  max-width: 580px;
+  padding: 1.5rem 1.25rem 1.75rem;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  text-align: center;
+  position: relative;
+}
+
+.trial-callout p {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
 /* Features */
 
-.features .grid,
-.how-it-works .grid {
+.features .grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -209,6 +235,15 @@ nav a:hover {
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+}
+
+.features .feature h4,
+.how-it-works .feature-hiw h4 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  text-wrap: balance;
 }
 
 .feature {
@@ -336,20 +371,20 @@ nav a:hover {
   margin-top: 40px;
 }
 
+.how-it-works .container {
+  max-width: 1200px;
+}
+
 .how-it-works .grid {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  gap: 2.5rem;
+  display: grid;
+  gap: 2rem;
   margin-top: 2rem;
   position: relative;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .how-it-works .feature-hiw {
-  flex: 0 0 260px;
   position: relative;
-  text-align: left;
 }
 
 /* Workflow arrows between steps */
@@ -442,6 +477,18 @@ footer {
     width: 100%;
     max-width: 280px;
   }
+
+  .accent-bar {
+    margin: 1.5rem auto 1rem;
+  }
+
+  .trial-callout {
+    margin-top: 1.5rem;
+    padding: 1.25rem 1rem 1.5rem;
+  }
+  .trial-callout p {
+    font-size: 1rem;
+  }
   
   .screenshot-gallery-grid.full,
   .screenshot-gallery-grid.narrow {
@@ -452,30 +499,22 @@ footer {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
-  /* How it Works - Mobile/Tablet (vertical stack) */
+
   .how-it-works .grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    grid-template-columns: 1fr;     /* stack */
+    gap: 2rem;                      /* vertical spacing between cards */
   }
-  
+
   .how-it-works .feature-hiw {
+    width: 100%;                    /* ensure full width */
     max-width: 100%;
-    flex: none;
-    width: 100%;
-  }
-  
-  /* Hide horizontal arrows */
-  .how-it-works .feature-hiw:not(:last-child)::after {
-    display: none;
   }
   
   /* Add vertical arrows for single column */
   .how-it-works .feature-hiw:not(:last-child)::after {
     content: '↓';
     position: absolute;
-    bottom: -1.75rem;
+    bottom: -2.25rem;
     left: 50%;
     right: auto;
     top: auto;
@@ -484,7 +523,6 @@ footer {
     color: var(--accent-color);
     font-weight: bold;
     z-index: 10;
-    display: block;
   }
 }
 
@@ -503,5 +541,12 @@ footer {
   
   .container {
     padding: 0.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .how-it-works .grid {
+    grid-template-columns: repeat(4, minmax(260px, 1fr));
+    gap: 2rem;
   }
 }
