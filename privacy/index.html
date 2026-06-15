@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Policy - FinanceAI</title>
     <link rel="stylesheet" href="../styles/styles.css" />
-    <link rel="icon" href="../assets/images/finai_logo.png" type="image/png" />
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+    <script src="../assets/js/nav.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RES9THKSGT"></script>
     <script>
@@ -17,26 +21,33 @@
     </script>
   </head>
   <body>
-    <header>
+    <header class="site-header">
       <div class="container">
-        <div class="branding">
-          <a href="../">
-            <img src="../assets/images/finai_logo.png" alt="FinanceAI logo" width="40" height="40" />
-            <h1>FinanceAI</h1>
-          </a>
-        </div>
-        <nav>
+        <a class="brand" href="../" aria-label="FinanceAI home">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect class="bm-sq" width="32" height="32" rx="6"/>
+            <path class="bm-area" d="M7 24 L7 21 L14 15 L24 7 L24 24 Z"/>
+            <path class="bm-line" d="M7 21 L14 15 L24 7"/>
+            <circle class="bm-dot" cx="24" cy="7" r="2.6"/>
+          </svg>
+          <span class="wordmark">FinanceAI</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
           <ul>
             <li><a href="../#features">Features</a></li>
+            <li><a href="../#how-it-works">How It Works</a></li>
             <li><a href="../#about">About</a></li>
             <li><a href="../#contact">Contact</a></li>
-            <li><a href="../privacy/">Privacy Policy</a></li>
+            <li><a class="btn btn-primary btn-sm" href="https://app.financeai.cloud" target="_blank" rel="noopener">Get Started</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <section class="container privacy-policy-container" style="padding-top: 3rem;">
+    <section class="prose">
       <h1>Privacy Policy</h1>
       <p><strong>Last Updated July 22, 2025</strong></p>
       <br/>
@@ -69,7 +80,7 @@
       <h3 id="topic1">1. What information do we collect?</h3>
       <p><strong>Personal information you disclose to us</strong></p>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> We collect personal information that you provide to us.</p>
+      <p class="in-short"><strong>In Short:</strong> We collect personal information that you provide to us.</p>
       <br/>
       <p>We collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, or otherwise when you contact us.</p>
       <br/>
@@ -99,7 +110,7 @@
 
       <p><strong>Information automatically collected</strong></p>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> Some information - such as your Internet Protocol (IP) address and/or browser and device characteristics - is collected automatically when you visit our Services.</p>
+      <p class="in-short"><strong>In Short:</strong> Some information - such as your Internet Protocol (IP) address and/or browser and device characteristics - is collected automatically when you visit our Services.</p>
       <br/>
       <p>We automatically collect certain information when you visit, use, or navigate the Services. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Services, and other technical information. This information is primarily needed to maintain the security and operation of our Services, and for our internal analytics and reporting purposes.</p>
       <br/>
@@ -113,7 +124,7 @@
 
       <h3 id="topic2">2. How do we process your information?</h3>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.</p>
+      <p class="in-short"><strong>In Short:</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.</p>
       <br/>
       <p>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</p>
       <ul class="bulleted-list">
@@ -129,7 +140,7 @@
 
       <h3 id="topic3">3. When and with whom do we share your personal information?</h3>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> We may share information in specific situations described in this section and/or with the following categories of third parties.</p>
+      <p class="in-short"><strong>In Short:</strong> We may share information in specific situations described in this section and/or with the following categories of third parties.</p>
       <br/>
       <p><strong>Vendors, Consultants, and Other Third-Party Service Providers.</strong> We may share your data with third-party vendors, service providers, contractors, or agents ("third parties") who perform services for us or on our behalf and require access to such information to do that work. We have contracts in place with our third parties, which are designed to help safeguard your personal information. This means that they cannot do anything with your personal information unless we have instructed them to do it. They will also not share your personal information with any organization apart from us. They also commit to protect the data they hold on our behalf and to retain it for the period we instruct. The categories of third parties we may share personal information with are as follows:</p>
       <ul class="bulleted-list">
@@ -147,7 +158,7 @@
 
       <h3 id="topic4">4. How do we handle your social logins?</h3>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> If you choose to register or log in to our Services using a social media account, we may have access to certain information about you.</p>
+      <p class="in-short"><strong>In Short:</strong> If you choose to register or log in to our Services using a social media account, we may have access to certain information about you.</p>
       <br/>
       <p>Our Services offer you the ability to register and log in using your third-party social media account details (like your Facebook or Twitter logins). Where you choose to do this, we will receive certain profile information about you from your social media provider. The profile information we receive may vary depending on the social media provider concerned, but will often include your name, email address, friends list, and profile picture, as well as other information you choose to make public on such a social media platform.</p>
       <br/>
@@ -156,7 +167,7 @@
 
       <h3 id="topic5">5. How long do we keep your information?</h3>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> We keep your information for as long as necessary to fulfill the purposes outlined in this privacy notice unless otherwise required by law.</p>
+      <p class="in-short"><strong>In Short:</strong> We keep your information for as long as necessary to fulfill the purposes outlined in this privacy notice unless otherwise required by law.</p>
       <br/>
       <p>We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us keeping your personal information for longer than three (3) months past the termination of the user's account.</p>
       <br/>
@@ -165,21 +176,21 @@
 
       <h3 id="topic6">6. How do we keep your information safe?</h3>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> We aim to protect your personal information through a system of organizational and technical security measures.</p>
+      <p class="in-short"><strong>In Short:</strong> We aim to protect your personal information through a system of organizational and technical security measures.</p>
       <br/>
       <p>We have implemented appropriate and reasonable technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.</p>
       <br/>
 
       <h3 id="topic7">7. Do we collect information from minors?</h3>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> We do not knowingly collect data from or market to children under 18 years of age.</p>
+      <p class="in-short"><strong>In Short:</strong> We do not knowingly collect data from or market to children under 18 years of age.</p>
       <br/>
       <p>We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at <a href="mailto:support@financeai.cloud">support@financeai.cloud</a>.</p>
       <br/>
 
       <h3 id="topic8">8. What are your privacy rights?</h3>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> You may review, change, or terminate your account at any time.</p>
+      <p class="in-short"><strong>In Short:</strong> You may review, change, or terminate your account at any time.</p>
       <br/>
       <p><strong>Withdrawing your consent:</strong> If we are relying on your consent to process your personal information, which may be express and/or implied consent depending on the applicable law, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section "HOW CAN YOU CONTACT US ABOUT THIS NOTICE?" below.</p>
       <br/>
@@ -203,7 +214,7 @@
 
       <h3 id="topic10">10. Do United States residents have specific privacy rights?</h3>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> If you are a resident of California, Colorado, Connecticut, Utah or Virginia, you are granted specific rights regarding access to your personal information.</p>
+      <p class="in-short"><strong>In Short:</strong> If you are a resident of California, Colorado, Connecticut, Utah or Virginia, you are granted specific rights regarding access to your personal information.</p>
       <br/>
 
       <p><strong>What categories of personal information do we collect?</strong></p>
@@ -444,7 +455,7 @@
 
       <h3 id="topic11">11. Do we make updates to this notice?</h3>
       <br/>
-      <p style="font-style: italic;"><strong>In Short:</strong> Yes, we will update this notice as necessary to stay compliant with relevant laws.</p>
+      <p class="in-short"><strong>In Short:</strong> Yes, we will update this notice as necessary to stay compliant with relevant laws.</p>
       <br/>
       <p>We may update this privacy notice from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.</p>
       <br/>
@@ -466,10 +477,14 @@
       <p>Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please visit: <a href="mailto:support@financeai.cloud">support@financeai.cloud</a>.</p>
     </section>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2024 FinanceAI. All rights reserved.</p>
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="../#features">Features</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../security/">Security</a>
+        <a href="mailto:support@financeai.cloud">Contact</a>
       </div>
+      <p>&copy; 2024 FinanceAI LLC. All rights reserved.</p>
     </footer>
   </body>
 </html>

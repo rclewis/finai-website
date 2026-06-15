@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="FinanceAI">
+  <style>
+    .sq   { fill: #252523; }
+    .area { fill: #1E8471; }
+    .line { fill: none; stroke: #6AC0AE; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+    .dot  { fill: #FFFFFF; }
+    @media (prefers-color-scheme: dark) {
+      .sq   { fill: #E4E4E0; }
+      .area { fill: #3DA38E; }
+      .line { stroke: #166558; }
+      .dot  { fill: #0E0E0D; }
+    }
+  </style>
+  <!-- Ascending area-chart mark: solid area + slope highlight + current data point -->
+  <rect class="sq" width="32" height="32" rx="6"/>
+  <path class="area" d="M7 24 L7 21 L14 15 L24 7 L24 24 Z"/>
+  <path class="line" d="M7 21 L14 15 L24 7"/>
+  <circle class="dot" cx="24" cy="7" r="2.6"/>
+</svg>

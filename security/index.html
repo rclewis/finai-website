@@ -6,7 +6,11 @@
     <meta name="description" content="FinanceAI security policy and responsible disclosure guidelines for reporting vulnerabilities." />
     <title>Security Policy - FinanceAI</title>
     <link rel="stylesheet" href="../styles/styles.css" />
-    <link rel="icon" href="../assets/images/finai_logo.png" type="image/png" />
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+    <script src="../assets/js/nav.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RES9THKSGT"></script>
     <script>
@@ -18,31 +22,38 @@
     </script>
   </head>
   <body>
-    <header>
+    <header class="site-header">
       <div class="container">
-        <div class="branding">
-          <a href="../">
-            <img src="../assets/images/finai_logo.png" alt="FinanceAI logo" width="40" height="40" />
-            <h1>FinanceAI</h1>
-          </a>
-        </div>
-        <nav>
+        <a class="brand" href="../" aria-label="FinanceAI home">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect class="bm-sq" width="32" height="32" rx="6"/>
+            <path class="bm-area" d="M7 24 L7 21 L14 15 L24 7 L24 24 Z"/>
+            <path class="bm-line" d="M7 21 L14 15 L24 7"/>
+            <circle class="bm-dot" cx="24" cy="7" r="2.6"/>
+          </svg>
+          <span class="wordmark">FinanceAI</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
           <ul>
             <li><a href="../#features">Features</a></li>
+            <li><a href="../#how-it-works">How It Works</a></li>
             <li><a href="../#about">About</a></li>
             <li><a href="../#contact">Contact</a></li>
-            <li><a href="../privacy/">Privacy Policy</a></li>
+            <li><a class="btn btn-primary btn-sm" href="https://app.financeai.cloud" target="_blank" rel="noopener">Get Started</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <section class="container privacy-policy-container" style="padding-top: 3rem;">
+    <section class="prose">
       <h1>Security</h1>
       <br/>
       <p>FinanceAI takes security seriously and appreciates responsible disclosure of potential vulnerabilities.</p>
       <br/>
-      <p>If you believe you have found a security issue, please contact us at <a href="mailto:support@financeai.com">support@financeai.com</a> and include:</p>
+      <p>If you believe you have found a security issue, please contact us at <a href="mailto:support@financeai.cloud">support@financeai.cloud</a> and include:</p>
       <br/>
       <ul class="bulleted-list">
         <li>A description of the issue</li>
@@ -63,10 +74,14 @@
       <br/>
     </section>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2024 FinanceAI. All rights reserved.</p>
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="../#features">Features</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../security/">Security</a>
+        <a href="mailto:support@financeai.cloud">Contact</a>
       </div>
+      <p>&copy; 2024 FinanceAI LLC. All rights reserved.</p>
     </footer>
   </body>
 </html>

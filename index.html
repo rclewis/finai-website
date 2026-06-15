@@ -6,32 +6,35 @@
     <meta name="description" content="FinanceAI is an AI-powered financial analysis platform for institutions, analysts, and finance teams." />
     <title>FinanceAI</title>
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="icon" href="assets/images/finai_logo.png" type="image/png" />
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+    <script src="assets/js/nav.js" defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const lightbox = document.getElementById("lightbox");
             const lightboxImage = lightbox.querySelector("img");
 
-            document.querySelectorAll('.screenshot-gallery-grid img').forEach(img => {
-                img.addEventListener('click', () => {
-                    lightboxImage.src = img.src;
-                    lightboxImage.alt = img.alt;
-                    lightbox.style.display = 'flex';
-                });
-            });
-
-            lightbox.addEventListener('click', () => {
+            function openLightbox(src, alt) {
+                lightboxImage.src = src;
+                lightboxImage.alt = alt || "";
+                lightbox.style.display = 'flex';
+            }
+            function closeLightbox() {
                 lightbox.style.display = 'none';
                 lightboxImage.src = '';
                 lightboxImage.alt = '';
+            }
+
+            document.querySelectorAll('[data-lightbox]').forEach(img => {
+                img.addEventListener('click', () => openLightbox(img.src, img.alt));
             });
 
+            lightbox.addEventListener('click', closeLightbox);
+
             document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') {
-                    lightbox.style.display = 'none';
-                    lightboxImage.src = '';
-                    lightboxImage.alt = '';
-                }
+                if (e.key === 'Escape') closeLightbox();
             });
         });
     </script>
@@ -46,20 +49,27 @@
     </script>
   </head>
   <body>
-    <header>
+    <header class="site-header">
       <div class="container">
-        <div class="branding">
-          <a href="index.html">
-            <img src="assets/images/finai_logo.png" alt="FinanceAI logo" width="40" height="40" />
-            <h1>FinanceAI</h1>
-          </a>
-        </div>
-        <nav>
+        <a class="brand" href="index.html" aria-label="FinanceAI home">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect class="bm-sq" width="32" height="32" rx="6"/>
+            <path class="bm-area" d="M7 24 L7 21 L14 15 L24 7 L24 24 Z"/>
+            <path class="bm-line" d="M7 21 L14 15 L24 7"/>
+            <circle class="bm-dot" cx="24" cy="7" r="2.6"/>
+          </svg>
+          <span class="wordmark">FinanceAI</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
           <ul>
             <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="privacy/">Privacy Policy</a></li>
+            <li><a class="btn btn-primary btn-sm" href="https://app.financeai.cloud" target="_blank" rel="noopener">Get Started</a></li>
           </ul>
         </nav>
       </div>
@@ -67,123 +77,143 @@
 
     <section class="hero">
       <div class="container">
-        <h2>AI-Powered Financial Analysis</h2>
-        <p>Automate your financial statement review, gain deep insights, and monitor business health effortlessly.</p>
+        <span class="eyebrow">AI-powered financial analysis</span>
+        <h1>Financial statement analysis, automated</h1>
+        <p class="lead">Automate your financial statement review, gain deep insights, and monitor business health effortlessly.</p>
         <div class="cta-container">
-          <a class="cta secondary" href="#contact">Request a Demo</a>
-          &nbsp;&nbsp;or&nbsp;&nbsp;
-          <a class="cta" href="https://app.financeai.cloud" target="_blank" rel="noopener">Get Started</a>
+          <a class="btn btn-primary" href="https://app.financeai.cloud" target="_blank" rel="noopener">Get Started</a>
+          <span class="cta-or">or</span>
+          <a class="btn btn-secondary" href="#contact">Request a Demo</a>
         </div>
-        <div class="login-screenshot" style="margin-top: 2rem; text-align: center;">
-        <img
+        <span class="trial-badge">Try it free for 14 days</span>
+        <div class="login-screenshot">
+          <img
             src="assets/images/screenshot7.png"
-            alt="Login Screen"
-            style="max-height: 300px; width: auto; max-width: 100%; border-radius: 8px; border: 1px solid #ccc; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); cursor: pointer; transition: transform 0.2s ease-in-out;"
-            onclick="document.querySelector('.lightbox img').src = this.src; document.querySelector('.lightbox').style.display = 'flex';"
-        />
-        </div>
-        <div class="accent-bar"></div>
-        <div class="trial-callout">
-          <p><strong>Try it free for 14 days.</strong></p>
+            alt="FinanceAI login screen"
+            data-lightbox
+          />
         </div>
       </div>
     </section>
 
     <section id="features" class="features">
       <div class="container">
-        <h3>Platform Highlights</h3>
-        <div class="grid">
-          <div class="feature">
-            <h4>Automated Analysis</h4>
+        <div class="section-head">
+          <span class="eyebrow">Platform</span>
+          <h2 class="section-title">Platform highlights</h2>
+        </div>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Automated Analysis</h3>
             <p>AI-driven tools instantly interpret balance sheets, income statements, and cash flow data.</p>
           </div>
-          <div class="feature">
-            <h4>Business Health Monitoring</h4>
+          <div class="card">
+            <h3>Business Health Monitoring</h3>
             <p>Track key metrics and performance ratios over time to spot risks and opportunities.</p>
           </div>
-          <div class="feature">
-            <h4>Portfolio Insights</h4>
+          <div class="card">
+            <h3>Portfolio Insights</h3>
             <p>Equip investment teams with smart summaries across multiple entities or portfolios.</p>
           </div>
         </div>
-        <div class="screenshot-gallery" style="margin-top: 2rem;">
-            <div class="screenshot-gallery-group">
-                <div class="screenshot-gallery-grid full">
-                    <img src="assets/images/screenshot1.png" alt="Screenshot 1" />
-                    <img src="assets/images/screenshot2.png" alt="Screenshot 2" />
-                    <img src="assets/images/screenshot6.png" alt="Screenshot 6" />
-                </div>
+        <div class="screenshot-gallery">
+          <div class="gallery-group">
+            <div class="gallery-grid full">
+              <img src="assets/images/screenshot1.png" alt="Screenshot 1" data-lightbox />
+              <img src="assets/images/screenshot2.png" alt="Screenshot 2" data-lightbox />
+              <img src="assets/images/screenshot6.png" alt="Screenshot 6" data-lightbox />
             </div>
-            <div class="screenshot-gallery-group">
-                <div class="screenshot-gallery-grid narrow">
-                    <img src="assets/images/screenshot4.png" alt="Screenshot 4" />
-                    <img src="assets/images/screenshot5.png" alt="Screenshot 5" />
-                    <img src="assets/images/screenshot3.png" alt="Screenshot 3" />
-                </div>
+          </div>
+          <div class="gallery-group">
+            <div class="gallery-grid narrow">
+              <img src="assets/images/screenshot4.png" alt="Screenshot 4" data-lightbox />
+              <img src="assets/images/screenshot5.png" alt="Screenshot 5" data-lightbox />
+              <img src="assets/images/screenshot3.png" alt="Screenshot 3" data-lightbox />
             </div>
-            
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <h3>How It Works</h3>
-            <div class="grid">
-                <div class="feature-hiw">
-                    <h4>Import Financial Statements</h4>
-                    <p>Bring your financial statements in any spreadsheet layout.</p>
-                </div>
-                <div class="feature-hiw">
-                    <h4>AI-Powered Parsing</h4>
-                    <p>Our engine intelligently extracts and maps your data based on the statement type.</p>
-                </div>
-                <div class="feature-hiw">
-                    <h4>Insight Generation</h4>
-                    <p>Get executive-level summaries, ratio analysis, and risk insights right at your fingertips.</p>
-                </div>
-                <div class="feature-hiw">
-                    <h4>Track Over Time</h4>
-                    <p>View trends, compare periods, and monitor business health across clients or portfolios.</p>
-                </div>
-            </div>
+    <section id="how-it-works" class="how-it-works section-alt">
+      <div class="container container-wide">
+        <div class="section-head">
+          <span class="eyebrow">Workflow</span>
+          <h2 class="section-title">How it works</h2>
         </div>
+        <div class="steps-grid">
+          <div class="step">
+            <span class="step-num">01</span>
+            <h3>Import Financial Statements</h3>
+            <p>Bring your financial statements in any spreadsheet layout.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">02</span>
+            <h3>AI-Powered Parsing</h3>
+            <p>Our engine intelligently extracts and maps your data based on the statement type.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">03</span>
+            <h3>Insight Generation</h3>
+            <p>Get executive-level summaries, ratio analysis, and risk insights right at your fingertips.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">04</span>
+            <h3>Track Over Time</h3>
+            <p>View trends, compare periods, and monitor business health across clients or portfolios.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="about" class="about">
       <div class="container">
-        <h3>About FinanceAI</h3>
-        <p>
-          FinanceAI is built for decision-makers who need clarity and speed. Whether you're a lender, analyst,
-          or CFO, we streamline your workflow with intelligent automation and financial insight generation.
-        </p>
-        <br/>
-        <p>
-            <a href="https://app.financeai.cloud" target="_blank" rel="noopener">Sign up</a> and start your <strong>14-day free trial</strong> today!
-        </p>
+        <div class="section-head">
+          <span class="eyebrow">Company</span>
+          <h2 class="section-title">About FinanceAI</h2>
+        </div>
+        <div class="prose-center">
+          <p>
+            FinanceAI is built for decision-makers who need clarity and speed. Whether you're a lender, analyst,
+            or CFO, we streamline your workflow with intelligent automation and financial insight generation.
+          </p>
+          <p>
+            <a href="https://app.financeai.cloud" target="_blank" rel="noopener">Sign up</a> and start your <strong>14-day free trial</strong> today.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section-alt">
       <div class="container">
-        <h3>Get in Touch</h3>
-        <p>Email us at <a href="mailto:support@financeai.cloud">support@financeai.cloud</a></p>
-        <p style="margin-top: 1rem;">
-          <a href="https://www.linkedin.com/company/financeai-llc" target="_blank" rel="noopener">
-            <img src="assets/images/linkedin_logo.png" alt="LinkedIn" height="32" style="margin-right: 20px;" />
-          </a>
-          <a href="https://www.x.com/FinanceAI_LLC" target="_blank" rel="noopener">
-            <img src="assets/images/x_logo.jpg" alt="X (Twitter)" height="32" style="border-radius: 2px;" />
-          </a>
-        </p>
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2 class="section-title">Get in touch</h2>
+        </div>
+        <div class="prose-center">
+          <p>Email us at <a href="mailto:support@financeai.cloud">support@financeai.cloud</a></p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/company/financeai-llc" target="_blank" rel="noopener" aria-label="FinanceAI on LinkedIn">
+              <img src="assets/images/linkedin_logo.png" alt="LinkedIn" />
+            </a>
+            <a href="https://www.x.com/FinanceAI_LLC" target="_blank" rel="noopener" aria-label="FinanceAI on X">
+              <img src="assets/images/x_logo.png" alt="X (Twitter)" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2024 FinanceAI. All rights reserved.</p>
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="privacy/">Privacy</a>
+        <a href="security/">Security</a>
+        <a href="mailto:support@financeai.cloud">Contact</a>
       </div>
+      <p>&copy; 2024 FinanceAI LLC. All rights reserved.</p>
     </footer>
+
     <div id="lightbox" class="lightbox">
       <img src="" alt="Expanded screenshot" />
     </div>
