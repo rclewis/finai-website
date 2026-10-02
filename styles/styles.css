@@ -318,6 +318,87 @@ img {
 }
 
 /* =============================================================================
+ * Announcement banner — "service paused" bar above the header
+ * The neutral ramp inverts in dark mode, which would turn this into a pale bar
+ * with low-contrast teal; dark mode re-points it at the dark ramp instead so it
+ * still reads as a distinct, slightly raised band.
+ * ========================================================================== */
+
+.announce-bar {
+  --announce-bg:       var(--neutral-800);
+  --announce-bg-hover: var(--neutral-900);
+  --announce-pill-bg:  var(--neutral-700);
+  --announce-fg:       var(--neutral-0);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  background: var(--announce-bg);
+  color: var(--announce-fg);
+  font-size: var(--text-base);
+  line-height: var(--text-base-lh);
+  text-align: center;
+  transition: background var(--motion-fast);
+}
+
+.announce-bar:hover {
+  background: var(--announce-bg-hover);
+  color: var(--announce-fg);
+}
+
+.announce-bar:focus-visible {
+  outline-offset: -2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .announce-bar {
+    --announce-bg:       var(--neutral-200);
+    --announce-bg-hover: var(--neutral-300);
+    --announce-pill-bg:  var(--neutral-100);
+    --announce-fg:       var(--neutral-900);
+  }
+}
+
+[data-theme="dark"] .announce-bar {
+  --announce-bg:       var(--neutral-200);
+  --announce-bg-hover: var(--neutral-300);
+  --announce-pill-bg:  var(--neutral-100);
+  --announce-fg:       var(--neutral-900);
+}
+
+.announce-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: calc(var(--space-1) / 2) var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--announce-pill-bg);
+  color: var(--accent-300);
+  font-size: var(--text-xs);
+  line-height: var(--text-xs-lh);
+  font-weight: var(--text-xs-weight);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+/* 6px status dot is icon geometry (no token home). */
+.announce-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+}
+
+.announce-link {
+  font-weight: 600;
+  color: var(--accent-300);
+}
+
+/* =============================================================================
  * Header + brand
  * ========================================================================== */
 
@@ -572,11 +653,6 @@ img {
   flex-wrap: wrap;
 }
 
-.cta-or {
-  color: var(--text-tertiary);
-  font-size: var(--text-sm);
-}
-
 /* Promotional trial pill — informational, NOT a semantic (positive) color. */
 .trial-badge {
   display: inline-flex;
@@ -597,6 +673,16 @@ img {
   height: var(--space-2);
   border-radius: var(--radius-full);
   background: var(--accent-500);
+}
+
+/* Service-paused status — neutral, since it's neither a promotion nor an alert. */
+.trial-badge--paused {
+  background: var(--surface-card-sunken);
+  color: var(--neutral-600);
+}
+
+.trial-badge--paused::before {
+  background: var(--neutral-400);
 }
 
 /* Hero product shot */
@@ -970,6 +1056,81 @@ img {
 }
 
 /* =============================================================================
+ * Service paused page (/paused/) — a static .hero that fills the viewport
+ * ========================================================================== */
+
+/* Body becomes a flex column so the hero stretches and the footer sits at the
+ * bottom on tall screens. */
+.page-fill {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-fill .hero {
+  flex: 1;
+}
+
+.page-fill .site-footer {
+  margin-top: 0;
+}
+
+.paused-hero .container {
+  padding: var(--space-16) var(--space-4);
+}
+
+.paused-hero .trial-badge {
+  margin-top: 0;
+  margin-bottom: var(--space-6);
+}
+
+.paused-hero h1 {
+  max-width: 18ch;
+}
+
+.paused-hero .lead {
+  max-width: 54ch;
+  text-wrap: pretty;
+}
+
+.paused-hero .lead + .lead {
+  margin-top: var(--space-4);
+}
+
+/* 420px is a structural width (no token home). */
+.paused-follow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 420px;
+  margin-top: calc(var(--space-12) + var(--space-2));
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.paused-follow-label {
+  font-size: var(--text-xs);
+  line-height: var(--text-xs-lh);
+  font-weight: var(--text-xs-weight);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.paused-follow .social-links {
+  margin-top: 0;
+}
+
+.paused-updated {
+  margin-top: var(--space-8);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-lh);
+  color: var(--text-tertiary);
+}
+
+/* =============================================================================
  * Motion — one calm, orchestrated entrance (§7); disabled if reduced-motion.
  * ========================================================================== */
 
@@ -993,6 +1154,9 @@ img {
   .hero .cta-container { animation-delay: 180ms; }
   .hero .trial-badge  { animation-delay: 240ms; }
   .hero .login-screenshot { animation-delay: 300ms; }
+
+  /* On the paused page the pill leads the stack, so it enters first. */
+  .paused-hero .trial-badge { animation-delay: 0ms; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1083,13 +1247,14 @@ img {
     line-height: var(--text-3xl-lh);
   }
 
+  .paused-hero .container {
+    padding: var(--space-8) var(--space-4);
+  }
+
+
   .cta-container {
     flex-direction: column;
     width: 100%;
-  }
-
-  .cta-or {
-    display: none;
   }
 
   .btn {
