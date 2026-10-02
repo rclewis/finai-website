@@ -1,4 +1,5 @@
 Contact: mailto:support@financeai.cloud
-Policy: https://financeai.cloud/security
+Expires: 2027-09-30T23:59:59Z
+Policy: https://financeai.cloud/security/
 Preferred-Languages: en
 Canonical: https://financeai.cloud/.well-known/security.txt
